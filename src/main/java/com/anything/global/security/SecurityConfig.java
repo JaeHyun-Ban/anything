@@ -1,5 +1,6 @@
-package com.anything.member.security;
+package com.anything.global.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,10 +10,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final JwtUtil jwtUtil;
+    private final MemberDetailsService memberDetailsService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -27,7 +33,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/members/signup", "/api/members/login").permitAll()
                         .anyRequest().authenticated()
-                );
+                )
+                .addFilterBefore(
+                        new JwtAuthenticationFilter(jwtUtil, memberDetailsService),
+                        UsernamePasswordAuthenticationFilter.class
+                )
+        ;
 
         return http.build();
 
