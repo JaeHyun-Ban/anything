@@ -1,0 +1,15 @@
+package com.anything.member.repository;
+
+import com.anything.member.entity.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
+
+    // 로그인 시 아이디로 회원 찾기
+    Optional<Member> findByLoginId(String loginId);
+
+    // 회원가입 시 아이디 중복 체크
+    boolean existByLoginId(String loginId);
+}

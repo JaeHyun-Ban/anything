@@ -1,0 +1,269 @@
+:root {
+  color: #1f2933;
+  font-family:
+    Inter, Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.auth-shell {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(360px, 1fr);
+  min-height: 100vh;
+}
+
+.brand-panel {
+  display: flex;
+  align-items: center;
+  padding: 56px;
+  color: #f9fafb;
+  background:
+    linear-gradient(rgba(14, 43, 61, 0.78), rgba(14, 43, 61, 0.7)),
+    url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80") center/cover;
+}
+
+.brand-panel > div {
+  max-width: 460px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.brand-panel h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 4.9rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.support-copy {
+  max-width: 34rem;
+  margin: 22px 0 0;
+  color: #dbeafe;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.auth-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: 48px 34px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.view-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(82px, 1fr));
+  min-width: 184px;
+  padding: 4px;
+  border: 1px solid #d5dde8;
+  border-radius: 8px;
+  background: #eaf0f7;
+}
+
+.view-switch button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 6px;
+  color: #52616f;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.view-switch button.active {
+  color: #0f172a;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(18, 31, 49, 0.09);
+}
+
+.auth-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label-text {
+  display: flex;
+  gap: 4px;
+  color: #344054;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.label-text span {
+  color: #e11d48;
+}
+
+.input-wrap {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: center;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid #ccd6e3;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #607086;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.input-wrap:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.input-wrap.has-error {
+  border-color: #e11d48;
+  box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.09);
+}
+
+.input-wrap input,
+.input-wrap select {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: #111827;
+  background: transparent;
+}
+
+.input-wrap select {
+  appearance: none;
+}
+
+.error-text {
+  color: #be123c;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.form-message {
+  margin: 0;
+  padding: 13px 14px;
+  border-radius: 8px;
+  color: #0f5132;
+  background: #def7ec;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.primary-button {
+  border: 1px solid #2563eb;
+  color: #ffffff;
+  background: #2563eb;
+  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.24);
+}
+
+.secondary-button {
+  border: 1px solid #cbd5e1;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+.full-width {
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-panel {
+    min-height: 290px;
+    align-items: end;
+    padding: 36px 24px;
+  }
+
+  .auth-panel {
+    justify-content: start;
+    padding: 36px 20px 44px;
+  }
+}
+
+@media (max-width: 620px) {
+  .panel-heading,
+  .action-row,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-heading {
+    display: grid;
+  }
+
+  .view-switch {
+    width: 100%;
+  }
+}
